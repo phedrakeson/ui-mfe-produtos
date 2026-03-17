@@ -1,12 +1,23 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
+interface Produto {
+  nome: string;
+  valor: number;
+  imagem: string;
+}
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CommonModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
-  protected readonly title = signal('ui-mfe-produtos');
+  produtos: Produto[] = [
+    { nome: 'Notebook', valor: 3500, imagem: 'https://picsum.photos/300/200?random=1' },
+    { nome: 'Mouse', valor: 50, imagem: 'https://picsum.photos/300/200?random=2' },
+    { nome: 'Teclado', valor: 150, imagem: 'https://picsum.photos/300/200?random=3' },
+    { nome: 'Monitor', valor: 800, imagem: 'https://picsum.photos/300/200?random=4' },
+    { nome: 'Webcam', valor: 200, imagem: 'https://picsum.photos/300/200?random=5' },
+  ];
 }
